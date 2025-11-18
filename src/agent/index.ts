@@ -11,6 +11,8 @@ export interface AgentResult {
   errors?: string[];
 }
 
+export { streamChatCompletion } from "./openaiClient";
+
 type AgentNode = (state: AgentState) => Promise<AgentState> | AgentState;
 
 interface KnowledgeRetrievalPlan {
