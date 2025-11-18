@@ -1,5 +1,3 @@
-import { END, START, StateGraph } from "@langchain/langgraph";
-import type { RunnableConfig } from "langchain/schema/runnable";
 import { UIDLDocument } from "../types/uidl";
 
 export interface AgentInput {
@@ -13,7 +11,7 @@ export interface AgentResult {
   errors?: string[];
 }
 
-type AgentNode = (state: AgentState, config?: RunnableConfig) => Promise<AgentState> | AgentState;
+type AgentNode = (state: AgentState) => Promise<AgentState> | AgentState;
 
 interface KnowledgeRetrievalPlan {
   targets: string[];
@@ -64,10 +62,10 @@ function createLogger(): AgentLogger {
 }
 
 function withErrorHandling(nodeName: string, logger: AgentLogger, node: AgentNode): AgentNode {
-  return async (state, config) => {
+  return async (state) => {
     try {
       logger.info(`${nodeName} start`);
-      const result = await node(state, config);
+      const result = await node(state);
       logger.info(`${nodeName} done`);
       return result;
     } catch (error) {
@@ -187,24 +185,22 @@ function trimmedLines(text: string): string[] {
 }
 
 export function createAgent(logger: AgentLogger = createLogger()) {
-  const graph = new StateGraph<AgentState>({});
-
-  graph.addNode("requirementUnderstanding", withErrorHandling("需求理解", logger, requirementUnderstandingNode));
-  graph.addNode("todoBreakdown", withErrorHandling("Todo拆解", logger, todoBreakdownNode));
-  graph.addNode("knowledgeRetrieval", withErrorHandling("知识检索", logger, knowledgeRetrievalNode));
-  graph.addNode("editPlanner", withErrorHandling("编辑计划", logger, editPlanNode));
-
-  graph.addEdge(START, "requirementUnderstanding");
-  graph.addEdge("requirementUnderstanding", "todoBreakdown");
-  graph.addEdge("todoBreakdown", "knowledgeRetrieval");
-  graph.addEdge("knowledgeRetrieval", "editPlanner");
-  graph.addEdge("editPlanner", END);
-
-  const compiled = graph.compile();
+  const pipeline: AgentNode[] = [
+    withErrorHandling("需求理解", logger, requirementUnderstandingNode),
+    withErrorHandling("Todo拆解", logger, todoBreakdownNode),
+    withErrorHandling("知识检索", logger, knowledgeRetrievalNode),
+    withErrorHandling("编辑计划", logger, editPlanNode),
+  ];
 
   return {
     async run(input: AgentInput): Promise<AgentResult> {
-      const result = await compiled.invoke({ ...input });
+      let state: AgentState = { ...input };
+
+      for (const step of pipeline) {
+        state = await step(state);
+      }
+
+      const result = state;
       return {
         updatedUIDL: result.updatedUIDL,
         suggestions: result.suggestions,
