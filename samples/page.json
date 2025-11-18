@@ -1,0 +1,650 @@
+{
+  "name": "justfortest-test_prd-1744810896665G",
+  "importMaps": [
+    {
+      "package": "@byted-midas-component/midas-built-in",
+      "imports": [
+        {
+          "type": "namespace",
+          "tags": [
+            "midas-import-component"
+          ],
+          "localName": "BuiltIn"
+        }
+      ]
+    },
+    {
+      "package": "@douyinfe/semi-ui",
+      "imports": [
+        {
+          "type": "namespace",
+          "localName": "Semi",
+          "tags": [
+            "midas-import-component"
+          ]
+        }
+      ]
+    },
+    {
+      "package": "@douyinfe/semi-icons",
+      "imports": [
+        {
+          "type": "namespace",
+          "localName": "SemiIcons",
+          "tags": [
+            "midas-import-component"
+          ]
+        }
+      ]
+    },
+    {
+      "package": "@byted-midas-component/midas-semi-pro",
+      "imports": [
+        {
+          "type": "namespace",
+          "localName": "SemiPro",
+          "tags": [
+            "midas-import-component"
+          ]
+        }
+      ]
+    },
+    {
+      "package": "@byted-midas-render-plugin/_douyinfe_semi_ui",
+      "imports": [
+        {
+          "type": "namespace",
+          "localName": "_douyinfe_semi_ui",
+          "tags": [
+            "midas-import-component"
+          ]
+        }
+      ]
+    }
+  ],
+  "nodeUIDL": {
+    "id": "rootFlex",
+    "type": "BuiltIn.FlexContainer",
+    "name": "根节点",
+    "props": {
+      "tagName": "div",
+      "style": {
+        "height": "100%",
+        "backgroundColor": "white",
+        "paddingLeft": "20px",
+        "paddingRight": "20px",
+        "paddingTop": "20px",
+        "paddingBottom": "20px"
+      },
+      "flexProperty": {
+        "flexDirection": "column",
+        "alignItems": "flex-start",
+        "justifyContent": "flex-start",
+        "flexWrap": "noWrap",
+        "alignContent": "flex-start",
+        "rowGap": 15,
+        "columnGap": ""
+      }
+    },
+    "children": [
+      {
+        "type": "BuiltIn.FlexContainer",
+        "id": "formContainer1",
+        "name": "BuiltIn_FlexContainer_Form",
+        "props": {
+          "style": {
+            "width": "100%"
+          }
+        },
+        "gridInfo": {
+          "area": {
+            "col": [
+              1,
+              5
+            ],
+            "row": [
+              1,
+              3
+            ]
+          },
+          "isFull": true
+        },
+        "children": [
+          {
+            "componentName": "Form",
+            "type": "Semi.Form",
+            "id": "formMain",
+            "name": "Semi_Form_Main",
+            "props": {
+              "layout": "horizontal",
+              "labelPosition": "inset",
+              "allowEmpty": false,
+              "initValues": {
+                "JSONMeta": "Symbol(JSONMeta)",
+                "type": "expression",
+                "content": {
+                  "context": "midas-context-binding",
+                  "value": "{\n  \"meegoId\": \"\",\n  \"type\": \"2\",\n  \"createTime\": \"最近 7 天\"\n}"
+                }
+              }
+            },
+            "gridInfo": {
+              "area": {
+                "col": [
+                  1,
+                  5
+                ],
+                "row": [
+                  1,
+                  3
+                ]
+              },
+              "isFull": true
+            },
+            "events": {
+              "onSubmit": {
+                "actions": [
+                  {
+                    "actionType": "updateDataSource",
+                    "actionPayload": {
+                      "dataSource": "data_kNq33"
+                    }
+                  }
+                ]
+              }
+            },
+            "children": [
+              {
+                "type": "Semi.Input",
+                "id": "input_meegoId",
+                "name": "Semi_Input_meegoId",
+                "gridInfo": {
+                  "area": {
+                    "col": [
+                      1,
+                      5
+                    ],
+                    "row": [
+                      1,
+                      3
+                    ]
+                  },
+                  "isFull": true
+                },
+                "props": {
+                  "label": {
+                    "text": "meego id"
+                  },
+                  "field": "meegoId",
+                  "showClear": true
+                },
+                "children": []
+              },
+              {
+                "type": "Semi.Select",
+                "id": "select_type",
+                "name": "Semi_Select_type",
+                "gridInfo": {
+                  "area": {
+                    "col": [
+                      1,
+                      5
+                    ],
+                    "row": [
+                      1,
+                      3
+                    ]
+                  },
+                  "isFull": true
+                },
+                "props": {
+                  "label": {
+                    "text": "type"
+                  },
+                  "field": "type",
+                  "optionList": [
+                    {
+                      "label": "不限",
+                      "value": "2"
+                    },
+                    {
+                      "label": "需求",
+                      "value": "0"
+                    },
+                    {
+                      "label": "bugfix",
+                      "value": "1"
+                    }
+                  ],
+                  "defaultValue": "2"
+                },
+                "children": []
+              },
+              {
+                "type": "Semi.Input",
+                "id": "input_createTime",
+                "name": "Semi_Input_createTime",
+                "gridInfo": {
+                  "area": {
+                    "col": [
+                      1,
+                      5
+                    ],
+                    "row": [
+                      1,
+                      3
+                    ]
+                  },
+                  "isFull": true
+                },
+                "props": {
+                  "label": {
+                    "text": "createTime"
+                  },
+                  "field": "createTime",
+                  "showClear": true
+                },
+                "children": []
+              },
+              {
+                "type": "Semi.Button",
+                "id": "button_submit",
+                "name": "Semi_Button_Submit",
+                "gridInfo": {
+                  "area": {
+                    "col": [
+                      1,
+                      5
+                    ],
+                    "row": [
+                      1,
+                      3
+                    ]
+                  },
+                  "isFull": true
+                },
+                "props": {
+                  "children": "查询",
+                  "htmlType": "submit",
+                  "theme": "solid"
+                },
+                "children": []
+              },
+              {
+                "type": "Semi.Button",
+                "id": "button_reset",
+                "name": "Semi_Button_Reset",
+                "gridInfo": {
+                  "area": {
+                    "col": [
+                      1,
+                      5
+                    ],
+                    "row": [
+                      1,
+                      3
+                    ]
+                  },
+                  "isFull": true
+                },
+                "props": {
+                  "children": "重置",
+                  "style": {
+                    "marginLeft": "15px"
+                  }
+                },
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      {
+                        "actionType": "runFlow",
+                        "actionPayload": {
+                          "flowId": "reset_formMain"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tableMain",
+        "type": "Semi.Table",
+        "name": "Semi_Table_Main",
+        "gridInfo": {
+          "area": {
+            "col": [
+              1,
+              13
+            ],
+            "row": [
+              1,
+              7
+            ]
+          },
+          "isFull": true
+        },
+        "props": {
+          "rowKey": "meegoId",
+          "columns": [
+            {
+              "title": "meegoId",
+              "dataIndex": "meegoId",
+              "fixed": "none"
+            },
+            {
+              "title": "分级标题",
+              "dataIndex": "title",
+              "fixed": "none"
+            },
+            {
+              "title": "发起人",
+              "dataIndex": "creator",
+              "fixed": "none"
+            },
+            {
+              "title": "type",
+              "dataIndex": "type",
+              "fixed": "none"
+            }
+          ],
+          "bordered": false,
+          "loading": false,
+          "size": "default",
+          "showHeader": true,
+          "empty": "暂无数据",
+          "dataSource": {
+            "JSONMeta": "Symbol(JSONMeta)",
+            "type": "expression",
+            "content": {
+              "context": "midas-context-binding",
+              "value": "this.global.__request__['data_kNq33'].data.list"
+            }
+          },
+          "rowSelection": {
+            "hidden": true
+          },
+          "pagination": {
+            "pageSizeOpts": [
+              10,
+              20,
+              40,
+              100
+            ],
+            "pageSize": 10,
+            "showSizeChanger": true,
+            "size": "default",
+            "position": "bottom"
+          },
+          "resizable": false
+        },
+        "events": {
+          "didMount": {
+            "actions": [
+              {
+                "actionType": "updateDataSource",
+                "actionPayload": {
+                  "dataSource": "data_kNq33"
+                }
+              }
+            ]
+          }
+        },
+        "children": [
+          {
+            "id": "slot_column_type",
+            "type": "BuiltIn.Slot",
+            "name": "BuiltIn_Slot_type",
+            "slotInfo": {
+              "field": "columns[3].render",
+              "type": "fnSlot",
+              "params": "text,record,index"
+            },
+            "props": {
+              "defaultClassname": "component-children-placeholder",
+              "defaultText": "拖拽模块或组件到这里"
+            },
+            "children": [
+              {
+                "id": "tag_type",
+                "type": "Semi.Tag",
+                "name": "Semi_Tag_type",
+                "gridInfo": {
+                  "area": {
+                    "col": [
+                      1,
+                      5
+                    ],
+                    "row": [
+                      1,
+                      3
+                    ]
+                  },
+                  "isFull": true
+                },
+                "props": {
+                  "children": {
+                    "JSONMeta": "Symbol(JSONMeta)",
+                    "type": "expression",
+                    "content": {
+                      "context": "midas-context-binding",
+                      "value": "record.type == 0 ? '需求' : (record.type == 1 ? '缺陷' : '')"
+                    }
+                  },
+                  "avatarShape": "square",
+                  "color": {
+                    "JSONMeta": "Symbol(JSONMeta)",
+                    "type": "expression",
+                    "content": {
+                      "context": "midas-context-binding",
+                      "value": "record.type == 0 ? 'green' : (record.type == 1 ? 'red' : '')"
+                    }
+                  }
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "type": "page",
+  "resources": [
+    {
+      "name": "components-material",
+      "resources": [
+        {
+          "name": "Semi",
+          "npm": "@douyinfe/semi-ui",
+          "order": 999,
+          "version": "0.17.0",
+          "externals": [
+            "react",
+            "react-dom"
+          ],
+          "loadInfos": [
+            {
+              "type": "js",
+              "format": "umd",
+              "scene": "render",
+              "main": "https://tosv.byted.org/obj/midas-projects/comp-build/t-1/@douyinfe/semi-ui/3043/static/semi-ui.min.js"
+            },
+            {
+              "type": "css",
+              "main": "https://tosv.byted.org/obj/midas-projects/comp-build/t-1/@douyinfe/semi-ui/3043/static/semi.min.css",
+              "scene": "render"
+            },
+            {
+              "type": "js",
+              "format": "umd",
+              "main": "https://tosv.byted.org/obj/midas-projects/comp-build/t-1/@douyinfe/semi-ui/5703/schema.js",
+              "scene": "edit",
+              "exportMap": {
+                "default": "compSchemaMap"
+              }
+            }
+          ],
+          "resourceId": "ee7ff78a-b327-4931-b19c-740f112bb778"
+        },
+        {
+          "name": "SemiIcons",
+          "npm": "@douyinfe/semi-icons",
+          "order": 999,
+          "version": "0.4.0",
+          "externals": [
+            "react",
+            "react-dom"
+          ],
+          "loadInfos": [
+            {
+              "type": "js",
+              "format": "umd",
+              "scene": "render",
+              "main": "https://tosv.byted.org/obj/midas-projects/comp-build/t-1/@douyinfe/semi-icons/2073/static/semi-icons.min.js"
+            },
+            {
+              "type": "css",
+              "main": "https://tosv.byted.org/obj/midas-projects/comp-build/t-1/@douyinfe/semi-icons/2073/static/semi-icons.min.css",
+              "scene": "render"
+            },
+            {
+              "type": "js",
+              "format": "umd",
+              "main": "https://tosv.byted.org/obj/midas-projects/comp-build/t-1/@douyinfe/semi-icons/2171/schema.js",
+              "scene": "edit",
+              "exportMap": {
+                "default": "compSchemaMap"
+              }
+            }
+          ],
+          "resourceId": "1b1a201b-d5b5-4a17-854c-b3db02b74a60"
+        },
+        {
+          "name": "SemiPro",
+          "npm": "@byted-midas-component/midas-semi-pro",
+          "order": 0,
+          "version": "0.9.0",
+          "externals": [
+            "react",
+            "react-dom"
+          ],
+          "loadInfos": [
+            {
+              "type": "js",
+              "format": "umd",
+              "scene": "render",
+              "main": "https://sf-unpkg-src.bytedance.net/@byted-midas-component/midas-semi-pro@0.1.25/umd/index.js"
+            },
+            {
+              "type": "js",
+              "format": "umd",
+              "main": "https://sf-unpkg-src.bytedance.net/@byted-midas-component/midas-semi-pro@0.1.25/umd/schema.js",
+              "scene": "edit",
+              "exportMap": {
+                "default": "compSchemaMap"
+              }
+            }
+          ],
+          "resourceId": "6c8dbee2-d868-40ee-a8a7-dd97ae3fa79c"
+        },
+        {
+          "name": "_douyinfe_semi_ui",
+          "npm": "@byted-midas-render-plugin/_douyinfe_semi_ui",
+          "order": -100,
+          "version": "0.17.0",
+          "externals": [
+            "react",
+            "react-dom"
+          ],
+          "loadInfos": [
+            {
+              "main": "https://sf-unpkg-src.bytedance.net/@byted-midas-render-plugin/midas-semi-compat@3.2.8/dist/index.js",
+              "scene": "render",
+              "type": "js",
+              "format": "umd",
+              "exportMap": {
+                "default": "renderPlugin"
+              }
+            }
+          ],
+          "resourceId": "render_ee7ff78a-b327-4931-b19c-740f112bb778",
+          "compPkg": "@douyinfe/semi-ui"
+        }
+      ]
+    }
+  ],
+  "containers": [],
+  "proxy": "https://bo4ykgg8.fn.bytedance.net",
+  "observerDataSources": [
+    {
+      "shouldFetch": {
+        "JSONMeta": "Symbol(JSONMeta)",
+        "type": "function",
+        "content": "function shouldFetch(reqOption) {\n  return true; \n}"
+      },
+      "willFetch": {
+        "JSONMeta": "Symbol(JSONMeta)",
+        "type": "function",
+        "content": "function willFetch(reqOption) {\n  return reqOption; \n}"
+      },
+      "originDataHandler": {
+        "JSONMeta": "Symbol(JSONMeta)",
+        "type": "expression",
+        "content": {
+          "context": "midas-context-binding",
+          "value": "function dataHandler(response) {\n  return response.data; \n}"
+        }
+      },
+      "errorHandler": {
+        "JSONMeta": "Symbol(JSONMeta)",
+        "type": "function",
+        "content": "function errorHandler(error) {\n  /** do something with error */ \n}"
+      },
+      "id": "data_kNq33",
+      "type": "http",
+      "name": "testDatasource",
+      "option": {
+        "uri": "https://gen-ui.bytedance.net/agent/api/data/list",
+        "method": "GET",
+        "withCredentials": false,
+        "isLocal": true,
+        "params": {
+          "JSONMeta": "Symbol(JSONMeta)",
+          "type": "expression",
+          "content": {
+            "context": "midas-context-binding",
+            "value": "({\n  modelName: \"prd_analysis_task\",\n  filters: {\n    ...this['vVnF4n1oT633GbCK_735'].formValues,\n    type: this['vVnF4n1oT633GbCK_735'].formValues.type === \"2\" ? \"\" : this['vVnF4n1oT633GbCK_735'].formValues.type\n  }\n})"
+          }
+        },
+        "headers": {
+          "x-use-ppe": "1",
+          "x-tt-env": "ppe_genui_prepub"
+        }
+      },
+      "isInit": false,
+      "mock": {
+        "data": {
+          "data": {},
+          "headers": {},
+          "status": 200,
+          "statusText": ""
+        },
+        "type": "data"
+      },
+      "dataHandler": {
+        "JSONMeta": "Symbol(JSONMeta)",
+        "type": "expression",
+        "content": {
+          "context": "midas-context-binding",
+          "value": "function (...args) {\n                const handler = function dataHandler(response) {\n  return response.data; \n};\n                const res = handler.call(this, ...args);this.global.__request__['data_kNq33'] = res;\n                return res;\n              }"
+        }
+      }
+    }
+  ],
+  "flows": []
+}
