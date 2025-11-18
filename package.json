@@ -1,0 +1,28 @@
+{
+  "name": "uidl_agent",
+  "version": "1.0.0",
+  "description": "理解uidl并动态规划生成逻辑",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "start": "ts-node src/agent/index.ts",
+    "check": "npm run lint && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/langgraph": "^0.1.8",
+    "langchain": "^0.3.5",
+    "langgraph": "^0.2.14"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^9.13.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
