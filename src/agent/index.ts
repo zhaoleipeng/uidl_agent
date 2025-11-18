@@ -1,9 +1,6 @@
 import { END, START, StateGraph } from "@langchain/langgraph";
 import type { RunnableConfig } from "langchain/schema/runnable";
-
-export interface UIDLDocument {
-  [key: string]: unknown;
-}
+import { UIDLDocument } from "../types/uidl";
 
 export interface AgentInput {
   requirements: string;
